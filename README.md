@@ -7,6 +7,10 @@
 <a  href="https://github.com/Lakshit-Karsoliya/SlideSlide"><strong>Demo and Documentation Link</strong></a>
 </p>
 
+####  What's new in SlideSlide 0.0.6
+
+* Added support for fonts (system installed)
+
 ##  What SlideSlide Does
 
 This library convert JSON-structured content and transform it into visually appealing, well-formatted slides effortlessly
