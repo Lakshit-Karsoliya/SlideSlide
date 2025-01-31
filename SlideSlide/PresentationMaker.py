@@ -10,6 +10,7 @@ import json
 def MakePresentation(
         presentation_content:list[dict],
         presentation_name:str=None,
+        font:str=None,
         add_ending_slide:bool=True,
         template_name:str='SapphireBlue',
         custom_template:str=None,
@@ -97,6 +98,7 @@ def MakePresentation(
             add_textbox(
                 slide=slide , 
                 text=slide_content['title'],
+                font=font,
                 font_size=coverslide['TitleFontSize'],
                 font_color=Colors.SAFEWHITE.value if slide_number==0 else Colors.SAFEBLACK.value,
                 left=coverslide['TitleLeft'],
@@ -107,6 +109,7 @@ def MakePresentation(
             add_content_textbox(
                 slide=slide ,
                 text = slide_content['content'].strip(),
+                font=font,
                 font_size=coverslide['ContentFontSize'],
                 font_color=Colors.SAFEWHITE.value if slide_number==0 else Colors.SAFEBLACK.value,
                 top=coverslide['ContentTop'],
@@ -118,12 +121,13 @@ def MakePresentation(
                 add_brandname_textbox(
                     slide=slide,
                     text = brand_name,
+                    font=font,
                     bold=True,
                     font_size = 22,
                     font_color=Colors.SAFEWHITE.value,
-                    top=600,
+                    top=700,
                     left=1000,
-                    width=900,
+                    width=400,
                     height=26
                 )
         else:
@@ -147,6 +151,7 @@ def MakePresentation(
             add_textbox(
                 slide=slide , 
                 text=slide_content['title'],
+                font=font,
                 font_size=content_slide['TitleFontSize'],
                 font_color=font_color,
                 left=coverslide['TitleLeft'],
@@ -157,6 +162,7 @@ def MakePresentation(
             add_content_textbox(
                 slide=slide ,
                 text = slide_content['content'].strip(),
+                font=font,
                 font_size=content_slide['ContentFontSize'],
                 font_color=font_color,
                 top=content_slide['ContentTop'],
@@ -168,12 +174,13 @@ def MakePresentation(
                 add_brandname_textbox(
                     slide=slide,
                     text = brand_name,
+                    font=font,
                     bold=True,
                     font_size = 22,
                     font_color=font_color,
                     top=670,
                     left=60,
-                    width=900,
+                    width=400,
                     height=26
                 )
     if add_ending_slide:
@@ -197,6 +204,7 @@ def MakePresentation(
             add_textbox(
                 slide=slide , 
                 text="Thanks for your Time",
+                font=font,
                 font_size=coverslide['TitleFontSize'],
                 font_color=Colors.SAFEWHITE.value ,
                 left=150,

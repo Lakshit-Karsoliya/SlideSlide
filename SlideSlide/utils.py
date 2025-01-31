@@ -7,7 +7,7 @@ from datetime import datetime
 def get_current_time():
     return datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
 
-def add_textbox(slide , text , font_size , font_color ,left, top ,width , height):
+def add_textbox(slide , text , font , font_size , font_color ,left, top ,width , height):
     title_box = slide.shapes.add_textbox(Pt(left),Pt(top),Pt(width),Pt(height))
     text_frame = title_box.text_frame
     text_frame.word_wrap=True
@@ -18,6 +18,9 @@ def add_textbox(slide , text , font_size , font_color ,left, top ,width , height
         type , text = data
         run = p.add_run()
         run.text=text 
+        try:
+            run.font.name=font 
+        except:...
         run.font.size = Pt(font_size)
         run.font.color.rgb = font_color
         if type == 'bold':
@@ -26,6 +29,7 @@ def add_textbox(slide , text , font_size , font_color ,left, top ,width , height
 def add_content_textbox(
         slide ,
         text , 
+        font,
         font_size , 
         font_color,
         left , 
@@ -43,6 +47,9 @@ def add_content_textbox(
         type , text = data
         run = p.add_run()
         run.text=text 
+        try:
+            run.font.name=font 
+        except:...
         run.font.size = Pt(font_size)
         run.font.color.rgb = font_color
         if type == 'bold':
@@ -52,6 +59,7 @@ def add_content_textbox(
 def add_brandname_textbox(
         slide ,
         text , 
+        font,
         bold,
         font_size , 
         font_color,
@@ -69,6 +77,9 @@ def add_brandname_textbox(
     run.text = text
     font = run.font
     font.size = Pt(font_size)  
+    try:
+        run.font.name=font 
+    except:...
     run.font.color.rgb = font_color
     run.font.bold = bold
      
